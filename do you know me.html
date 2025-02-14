@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💕 How well do you know me? 💕</h1>
+        <form id="quizForm">
+
+            <div class="question">
+                <label>2. Do you like in me? 💖</label>
+                <button type="button" onclick="selectAnswer(1, true)">Yes</button>
+                <button type="button" onclick="selectAnswer(1, false)">No</button>
+            </div>
+
+            <div class="question">
+                <label>3. Ok then, will you be my valentine? 🍕</label>
+                <button type="button" onclick="selectAnswer(2, true)">Yes</button>
+                <button type="button" onclick="selectAnswer(2, false)">No</button>
+            </div>
+
+            <button type="button" onclick="checkAnswers()">Submit 💌</button>
+        </form>
+    </div>
+
+    <script>
+        let answers = { 1: false, 2: false};
+
+        function selectAnswer(question, answer) {
+            answers[question] = answer;
+        }
+
+        function checkAnswers() {
+            if (answers[1] === true && answers[2] === true) {
+                window.location.href = "love.html";
+            } else {
+                document.querySelector(".container").innerHTML = '<h1>💔 Oh no! You have doubts? Try again! 💔</h1><button onclick="window.location.href=\'quiz.html\'">Retry</button>';
+            }
+        }
+    </script>
+</body>
+</html>
